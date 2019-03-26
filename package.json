@@ -1,32 +1,85 @@
 {
-  "name": "sendit",
-  "version": "1.0.0",
-  "description": "a web application to deliver parcels",
-  "main": "index.js",
+  "name": "react-node-starter",
+  "version": "1.1.0",
+  "description": "an example for deploying a React + NodeJS app to Heroku",
+  "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "webpack-dev-server --config ./webpack.config.js --mode development"
+    "build": "webpack --config webpack.prod.config.js",
+    "dev": "webpack-dev-server --hot --inline",
+    "lint": "eslint src/**",
+    "lint:watch": "esw -w src/**",
+    "review": "npm run lint && npm test",
+    "start": "npm run build && NODE_ENV=production node server.js",
+    "test": "jest src/**",
+    "test:watch": "jest src/** --watch",
+    "test:watchAll": "jest src/** --watchAll",
+    "test:coverage:report": "open coverage/lcov-report/index.html"
   },
-  "author": "olympians",
+  "author": "",
   "license": "ISC",
-  "babel": {
-    "presets": [
-      "@babel/preset-env",
-      "@babel/preset-react"
-    ]
+  "dependencies": {
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2",
+    "babel-polyfill": "^6.26.0",
+    "babel-preset-env": "^1.6.0",
+    "babel-preset-react": "^6.24.1",
+    "babel-preset-stage-0": "^6.24.1",
+    "bootstrap": "^3.3.7",
+    "css-loader": "^2.1.1",
+    "enzyme-adapter-react-16": "^1.0.0",
+    "express": "^4.15.5",
+    "node-sass": "^4.5.3",
+    "prop-types": "^15.6.0",
+    "raf": "^3.3.2",
+    "react": "^16.0.0",
+    "react-bootstrap": "^0.31.3",
+    "react-dom": "^16.0.0",
+    "sass-loader": "^6.0.6",
+    "style-loader": "^0.18.2",
+    "webpack": "^3.6.0",
+    "webpack-dev-middleware": "^1.12.0",
+    "webpack-dev-server": "^3.2.1",
+    "webpack-hot-middleware": "^2.19.1"
   },
   "devDependencies": {
-    "@babel/core": "^7.4.0",
-    "@babel/preset-env": "^7.4.2",
-    "@babel/preset-react": "^7.0.0",
-    "babel-loader": "^8.0.5",
-    "react-hot-loader": "^4.8.0",
-    "webpack": "^4.29.6",
-    "webpack-cli": "^3.3.0",
-    "webpack-dev-server": "^3.2.1"
+    "babel-eslint": "^8.0.1",
+    "enzyme": "^3.0.0",
+    "eslint": "^4.7.2",
+    "eslint-loader": "^1.9.0",
+    "eslint-plugin-jsx-a11y": "^6.0.2",
+    "eslint-plugin-react": "^7.4.0",
+    "eslint-watch": "^3.1.2",
+    "jest": "^24.5.0",
+    "react-addons-test-utils": "^15.6.2",
+    "react-test-renderer": "^16.0.0",
+    "webpack": "^3.6.0",
+    "webpack-dev-middleware": "^1.12.0",
+    "webpack-dev-server": "^3.2.1",
+    "webpack-hot-middleware": "^2.19.1"
   },
-  "dependencies": {
-    "react": "^16.8.5",
-    "react-dom": "^16.8.5"
+  "jest": {
+    "collectCoverage": true,
+    "collectCoverageFrom": [
+      "src/**",
+      "!src/index.js"
+    ],
+    "coverageThreshold": {
+      "global": {
+        "branches": 90,
+        "functions": 90,
+        "lines": 90,
+        "statements": 90
+      }
+    },
+    "moduleDirectories": [
+      "node_modules",
+      "./"
+    ],
+    "moduleNameMapper": {
+      "^.+.(css|scss|sass)$": "<rootDir>/__tests__/cssStub.js"
+    },
+    "setupFiles": [
+      "raf/polyfill"
+    ]
   }
 }
