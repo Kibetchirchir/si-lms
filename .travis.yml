@@ -1,6 +1,13 @@
 language: node_js
 node_js:
   - "11.10.1"
+
+env:
+  global:
+    - CC_TEST_REPORTER_ID=238d53194f20137e4f7a5c35154d0b7b5dd802dc9b05e3ffb81c311d61f8392b
+  matrix:
+    - REACT=16.7
+
 cache:
   directories:
     - node_modules
