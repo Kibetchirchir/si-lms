@@ -12,7 +12,9 @@
     "dev": "webpack-dev-server --hot --inline",
     "build": "webpack --config webpack.prod.config.js --mode production",
     "start": "npm run build && NODE_ENV=production node server.js",
-    "FIXFIX": "webpack --progress --profile --colors --display-error-details --display-cached"
+    "FIXFIX": "webpack --progress --profile --colors --display-error-details --display-cached",
+    "coverage": "react-scripts test -u --env=jsdom --coverage --coveragePathIgnorePatterns=src/index.js --coveragePathIgnorePatterns=src/serviceWorker.js",
+    "coveralls": "cat ./coverage/lcov.info | node node_modules/.bin/coveralls"
   },
   "author": "olympians",
   "license": "ISC",
