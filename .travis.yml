@@ -11,14 +11,21 @@ env:
 cache:
   directories:
     - node_modules
+install:
+  - npm install
 
 before_script:
-  - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
+  - psql -c 'create database travis_ci_test;' -U postgres
+  - curl -L
+    https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64
+    > ./cc-test-reporter
   - chmod +x ./cc-test-reporter
   - ./cc-test-reporter before-build
 
 script:
   - npm test --coverage
+  - npm run test
+  - npm run coveralls
 
-after_script:
+after_success:
   - ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT

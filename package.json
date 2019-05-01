@@ -12,7 +12,9 @@
     "dev": "webpack-dev-server --hot --inline",
     "build": "webpack --config webpack.prod.config.js --mode production",
     "start": "npm run build && NODE_ENV=production node server.js",
-    "FIXFIX": "webpack --progress --profile --colors --display-error-details --display-cached"
+    "FIXFIX": "webpack --progress --profile --colors --display-error-details --display-cached",
+    "coverage": "react-scripts test -u --env=jsdom --coverage --coveragePathIgnorePatterns=src/index.js --coveragePathIgnorePatterns=src/serviceWorker.js",
+    "coveralls": "jest --coverage --coverageReporters=text-lcov | coveralls"
   },
   "author": "olympians",
   "license": "ISC",
@@ -48,6 +50,7 @@
     "babel-jest": "^24.7.1",
     "babel-loader": "^8.0.5",
     "babel-plugin-transform-async-to-module-method": "^6.24.1",
+    "coveralls": "^3.0.3",
     "css-loader": "^2.1.1",
     "enzyme": "^3.9.0",
     "enzyme-adapter-react-16": "^1.11.2",
