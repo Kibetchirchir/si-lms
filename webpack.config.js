@@ -26,6 +26,7 @@ module.exports = {
             path.resolve('./'),
             path.resolve('./node_modules'),
         ],
+        alias: { 'dom-helpers': 'dom-helpers5' } ,
         extensions: ['.js', '.scss'],
     },
     output: {
