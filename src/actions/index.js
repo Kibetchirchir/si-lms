@@ -1,6 +1,8 @@
 import {LOGIN} from "../constants/action-types";
 
-const apiURL = "https://send-it-kibet.herokuapp.com/api/v2/auth/login";
+const baseUrl = process.env.baseUrl;
+
+const apiURL = `${baseUrl}/auth/login`;
 export const login = (postData) => dispatch => {
     fetch(apiURL, {
         method: 'POST',
