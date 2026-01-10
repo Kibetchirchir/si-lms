@@ -92,7 +92,7 @@
     "recompose": "^0.30.0",
     "redux": "^4.0.5",
     "redux-thunk": "^2.3.0",
-    "webpack": "^4.41.6"
+    "webpack": "^5.104.1"
   },
   "repository": {
     "type": "git",
